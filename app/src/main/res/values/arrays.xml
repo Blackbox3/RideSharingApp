@@ -1,0 +1,32 @@
+<resources>
+    <string-array name="country_codes_array">
+        <item>+61 (Australia)</item>
+        <item>+55 (Brazil)</item>
+        <item>+86 (China)</item>
+        <item>+20 (Egypt)</item>
+        <item>+358 (Finland)</item>
+        <item>+33 (France)</item>
+        <item>+49 (Germany)</item>
+        <item>+91 (India)</item>
+        <item>+39 (Italy)</item>
+        <item>+81 (Japan)</item>
+        <item>+254 (Kenya)</item>
+        <item>+52 (Mexico)</item>
+        <item>+977 (Nepal)</item>
+        <item>+234 (Nigeria)</item>
+        <item>+64 (New Zealand)</item>
+        <item>+92 (Pakistan)</item>
+        <item>+63 (Philippines)</item>
+        <item>+7 (Russia)</item>
+        <item>+65 (Singapore)</item>
+        <item>+27 (South Africa)</item>
+        <item>+82 (South Korea)</item>
+        <item>+34 (Spain)</item>
+        <item>+46 (Sweden)</item>
+        <item>+41 (Switzerland)</item>
+        <item>+971 (United Arab Emirates)</item>
+        <item>+44 (United Kingdom)</item>
+        <item>+1 (United States)</item>
+        <item>+598 (Uruguay)</item>
+    </string-array>
+</resources>

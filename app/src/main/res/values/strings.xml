@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RideSharing</string>
+    <string-array name="role_options">
+        <item>Rider</item>
+        <item>Driver</item>
+    </string-array>
+</resources>
