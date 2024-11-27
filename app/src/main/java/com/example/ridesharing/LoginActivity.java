@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.widget.CheckBox;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,10 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 101;
     private LoginApi loginApi;
+    private EditText editTextEmail, editTextPassword;
+    private CheckBox checkboxShowPassword;
+    private Button buttonLoginSubmit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,22 @@ public class LoginActivity extends AppCompatActivity {
 
         EditText emailEditText = findViewById(R.id.editTextEmail);
         EditText passwordEditText = findViewById(R.id.editTextPassword);
+        CheckBox checkboxShowPassword = findViewById(R.id.checkboxShowPassword);
         Button loginButton = findViewById(R.id.buttonLoginSubmit);
+
+        checkboxShowPassword.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Show the password
+                passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // Hide the password
+                passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+
+            // Move the cursor to the end of the text after transformation changes
+            passwordEditText.setSelection(passwordEditText.length());
+        });
+
 
         loginApi = ApiClient.getClient().create(LoginApi.class);
 
@@ -105,18 +127,34 @@ public class LoginActivity extends AppCompatActivity {
 
     private void navigateToNextActivity(String userType) {
         Intent intent;
-        System.out.println("user type "+ userType);
-                    intent = new Intent(LoginActivity.this, DriverActivity.class);
+        System.out.println("User type: " + userType);
+
+        if (userType.equalsIgnoreCase("Driver")) {
+            intent = new Intent(LoginActivity.this, DriverActivity.class);
+        } else if (userType.equalsIgnoreCase("Rider")) {
+            intent = new Intent(LoginActivity.this, RiderActivity.class);
+        } else {
+            // Optionally handle other cases or default behavior
+            System.out.println("Unknown user type: " + userType);
+            return;
+        }
+
+        startActivity(intent);
 
 
-//        if ("driver".equals(userType)) {
+    finish();
+}
+
+
+
+    //        if ("driver".equals(userType)) {
 //            intent = new Intent(LoginActivity.this, DriverActivity.class);
 //        } else {
 //            intent = new Intent(LoginActivity.this, RiderActivity.class);
 //        }
-        startActivity(intent);
-        finish(); // Close the LoginActivity
-    }
+//        startActivity(intent);
+//        finish(); // Close the LoginActivity
+//    }
 
     private void showToast(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();

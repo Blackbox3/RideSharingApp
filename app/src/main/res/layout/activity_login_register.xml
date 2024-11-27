@@ -3,20 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@color/background_color">
 
+    <!-- Login Button -->
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_marginBottom="16dp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background"
+        android:layout_marginBottom="16dp"
+        android:elevation="4dp"
+        android:stateListAnimator="@animator/button_state" />
 
+    <!-- Register Button -->
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register" />
-
+        android:text="Register"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:stateListAnimator="@animator/button_state" />
 </LinearLayout>

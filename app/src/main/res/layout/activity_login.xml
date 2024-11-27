@@ -1,53 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@color/backgroundColor"
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextEmail"
+    <!-- Email Input Field with Icon -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:background="@drawable/edit_text_background" />
+        android:orientation="horizontal"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp">
 
-    <EditText
-        android:id="@+id/editTextPassword"
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_user" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="10dp" />
+    </LinearLayout>
+
+    <!-- Password Input Field with Icon -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:background="@drawable/edit_text_background" />
+        android:orientation="horizontal"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp">
 
-    <!-- Show/Hide Password Checkbox -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="10dp" />
+    </LinearLayout>
+
+    <!-- Show Password Checkbox -->
     <CheckBox
         android:id="@+id/checkboxShowPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show Password"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:textColor="@color/textColorSecondary" />
 
+    <!-- Login Button -->
     <Button
         android:id="@+id/buttonLoginSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:padding="12dp"
+        android:textSize="16sp" />
 
-    <!-- Google Sign-In Button (Commented Out) -->
-    <!--
-    <Button
-        android:id="@+id/buttonGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Continue with Google"
-        android:layout_marginTop="16dp" />
-    -->
+<!--    &lt;!&ndash; Google Sign-In Button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/buttonGoogleSignIn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Continue with Google"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:drawableLeft="@drawable/ic_google"-->
+<!--        android:background="@drawable/button_google_background"-->
+<!--        android:padding="12dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:textSize="16sp" />-->
 
 </LinearLayout>

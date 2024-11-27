@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -5,64 +6,110 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Full Name -->
     <EditText
         android:id="@+id/editTextFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name"/>
+        android:hint="Full Name"
+        android:padding="16dp"
+        android:background="@drawable/rounded_input_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"/>
 
+    <!-- Email -->
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"/>
+        android:hint="Email"
+        android:padding="16dp"
+        android:background="@drawable/rounded_input_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Country Code Picker -->
     <com.hbb20.CountryCodePicker
         android:id="@+id/countryCodePicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Phone -->
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone"/>
+        android:hint="Phone"
+        android:padding="16dp"
+        android:background="@drawable/rounded_input_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Password -->
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:background="@drawable/rounded_input_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Role Spinner -->
     <Spinner
         android:id="@+id/spinnerRole"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Driver Details (Initially hidden) -->
     <LinearLayout
         android:id="@+id/layoutDriverDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
 
         <EditText
             android:id="@+id/editTextLicensePlate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="License Plate"/>
+            android:hint="License Plate"
+            android:padding="16dp"
+            android:background="@drawable/rounded_input_background"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="8dp"/>
 
         <EditText
             android:id="@+id/editTextBikeNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bike Number"/>
+            android:hint="Bike Number"
+            android:padding="16dp"
+            android:background="@drawable/rounded_input_background"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 
+    <!-- Submit Button -->
     <Button
         android:id="@+id/buttonRegisterSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"/>
+        android:text="Register"
+        android:background="@drawable/rounded_button_background"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        android:elevation="4dp"
+        android:layout_gravity="center"/>
 </LinearLayout>

@@ -77,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                 driverDetailsLayout.setVisibility(View.GONE);
             }
         });
+        Toast.makeText(RegisterActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
 
         // Register button click listener
         registerButton.setOnClickListener(v -> registerUser(nameEditText, emailEditText, phoneEditText, passwordEditText, roleSpinner, licensePlateEditText, bikeNumberEditText));
@@ -110,24 +111,32 @@ public class RegisterActivity extends AppCompatActivity {
             registrationRequest.setUserType(role);
             registrationRequest.setLicenseNumber(licensePlate);
             registrationRequest.setBikeName(bikeNumber);
+            registrationRequest.setName(name);
 
             // Call the registration API
+
             Call<BaseResponse<RegistrationResponse>> call = registrationApi.registerUser(registrationRequest);
             call.enqueue(new Callback<BaseResponse<RegistrationResponse>>() {
                 @Override
                 public void onResponse(Call<BaseResponse<RegistrationResponse>> call, Response<BaseResponse<RegistrationResponse>> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                        // Navigate to the next activity
-                        // TODO: Navigate to main page -> login / register
+                    System.out.println("response"+response.message());
+                    BaseResponse baseResponse = (BaseResponse) response.body();
+
+                    if (response.body() != null && response.body().isSuccess()) {
+                        runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show());
+                        // TODO: Navigate to the main page
+                        Intent loginIntent = new Intent(RegisterActivity.this, RegisterActivity.class);
+                        startActivity(loginIntent);
+                    } else if (response.body() != null) {
+                        runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Registration failed: " + response.body().getMessage(), Toast.LENGTH_SHORT).show());
                     } else {
-                        Toast.makeText(RegisterActivity.this, "Registration failed: " + response.message(), Toast.LENGTH_SHORT).show();
+                        runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Unexpected error occurred.", Toast.LENGTH_SHORT).show());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<BaseResponse<RegistrationResponse>> call, Throwable t) {
-                    Toast.makeText(RegisterActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    runOnUiThread(()->Toast.makeText(RegisterActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show());
                 }
             });
         }

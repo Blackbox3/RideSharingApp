@@ -2,36 +2,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"> <!-- Change background color or use a drawable -->
+    android:background="@color/splash_background">
 
+    <!-- Logo or any splash screen graphic -->
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
-       android:layout_marginTop="100dp" />
+        android:layout_marginTop="150dp" />
 
+    <!-- Slogan or any text you want to display -->
     <TextView
         android:id="@+id/sloganTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Slogan Here"
-    android:textSize="20sp"
-    android:textColor="@android:color/black"
-    android:layout_below="@id/logoImageView"
-    android:layout_marginTop="20dp"
-    android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/buttonGetStarted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Started"
-        android:layout_below="@id/sloganTextView"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/logoImageView"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
-    android:textColor="@android:color/white"
-    android:padding="10dp" />
+        android:padding="8dp" />
+
+    <!-- "Get Started" button -->
+    <Button
+        android:id="@+id/buttonGetStarted"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Get Started"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_background"
+        android:layout_below="@id/sloganTextView"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:elevation="4dp"
+        android:textSize="16sp" />
 </RelativeLayout>
