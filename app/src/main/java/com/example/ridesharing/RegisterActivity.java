@@ -3,6 +3,9 @@ package com.example.ridesharing;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,10 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         Toast.makeText(RegisterActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
 
-        // Register button click listener
-        registerButton.setOnClickListener(v -> registerUser(nameEditText, emailEditText, phoneEditText, passwordEditText, roleSpinner, licensePlateEditText, bikeNumberEditText));
     }
-
     private void registerUser(EditText nameEditText, EditText emailEditText, EditText phoneEditText,
                               EditText passwordEditText, Spinner roleSpinner,
                               EditText licensePlateEditText, EditText bikeNumberEditText) {

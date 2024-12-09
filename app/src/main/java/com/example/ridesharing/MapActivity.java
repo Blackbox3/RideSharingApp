@@ -151,7 +151,7 @@ public class MapActivity extends AppCompatActivity {
                 return null;
             }
         }
-
+``
         @Override
         protected void onPostExecute(List<String> suggestions) {
             if (suggestions != null) {

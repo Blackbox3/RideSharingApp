@@ -18,6 +18,8 @@ import com.example.ridesharing.api.LoginApi;
 import com.example.ridesharing.dto.BaseResponse;
 import com.example.ridesharing.dto.LoginResponse;
 
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
