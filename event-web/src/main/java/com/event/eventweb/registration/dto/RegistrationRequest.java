@@ -22,4 +22,6 @@ public class RegistrationRequest extends ModelBase {
     private String bikeName;
     private String plateNumber;
     private String userType;
+    private String name;
+
 }

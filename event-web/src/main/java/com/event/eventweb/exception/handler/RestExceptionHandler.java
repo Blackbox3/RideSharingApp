@@ -67,10 +67,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         if (log.isDebugEnabled()) {
             log.error("Exception : ", ex);
         }
-        return buildResponseEntity(ex.getServerResponse(), HttpStatus.OK);
+        return buildResponseEntity(ex.getPlatformResponse(), HttpStatus.OK);
     }
 
     private ResponseEntity<Object> buildResponseEntity(PlatformResponse genericResponse, HttpStatus httpStatus) {
-        return new ResponseEntity<>(httpStatus);
+        return new ResponseEntity<>(genericResponse,httpStatus);
     }
 }

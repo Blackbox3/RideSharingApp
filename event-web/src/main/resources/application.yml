@@ -11,7 +11,7 @@ spring:
 
 
 server:
-  port: 5555
+  port: 8080
   servlet:
     context-path: /
 

@@ -30,12 +30,12 @@ public class ResponseMsg {
 //        return MessageComposer.compose(serverResponse, messageKey, parameters);
 //    }
 //
-//    public static ServerResponse successResponse() {
-//        ServerResponse serverResponse = new ServerResponse();
-//        serverResponse.setSuccess(true);
-//        serverResponse.setCode("0");
-//        return serverResponse;
-//    }
+    public static PlatformResponse successResponse() {
+        PlatformResponse serverResponse = new PlatformResponse();
+        serverResponse.setSuccess(true);
+        serverResponse.setCode("0");
+        return serverResponse;
+    }
 //
     public static PlatformResponse failureResponse(String message) {
         PlatformResponse platformResponse = new PlatformResponse();

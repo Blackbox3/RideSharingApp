@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @author Bikash Shah
  */
 @Service
-public class RideRequestServiceImpl implements RideRequestService {
+public class  RideRequestServiceImpl implements RideRequestService {
 
     @Autowired
     private RequestRepository requestRepository;

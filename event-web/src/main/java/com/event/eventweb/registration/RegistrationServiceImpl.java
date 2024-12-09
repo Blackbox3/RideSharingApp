@@ -22,7 +22,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public PlatformResponse registerUser(RegistrationRequest registrationRequest) {
-        registrationManager.checkIfApplicationUserAlreadyExists(registrationRequest.getUsername());
+       PlatformResponse platformResponse= registrationManager.checkIfApplicationUserAlreadyExists(registrationRequest.getUsername());
+       if(!platformResponse.isSuccess()){
+           return platformResponse;
+       }
 
         ApplicationUser applicationUser = registrationMapper.convertToApplicationUser(registrationRequest);
 

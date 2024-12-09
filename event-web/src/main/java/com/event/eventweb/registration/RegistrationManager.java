@@ -1,5 +1,6 @@
 package com.event.eventweb.registration;
 
+import com.event.eventweb.dto.PlatformResponse;
 import com.event.eventweb.entity.ApplicationUser;
 import com.event.eventweb.exception.ResourceAlreadyExistException;
 import com.event.eventweb.repository.ApplicationUserRepository;
@@ -22,11 +23,12 @@ public class RegistrationManager {
     @Autowired
     private ApplicationUserRepository applicationUserRepository;
 
-    public void checkIfApplicationUserAlreadyExists(String username) {
+    public PlatformResponse checkIfApplicationUserAlreadyExists(String username) {
         Optional<ApplicationUser> optionalApplicationUser = applicationUserRepository.findByUserName(username);
         if (optionalApplicationUser.isPresent()) {
-            throw new ResourceAlreadyExistException(ResponseMsg.failureResponse("Username already exists"));
+            return ResponseMsg.failureResponse("Username "+username+" already exists");
         }
+        return ResponseMsg.successResponse();
     }
 
     public String generatePassword(String username){

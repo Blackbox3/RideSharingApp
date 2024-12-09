@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://junction.proxy.rlwy.net:37424/ride_sharing
+    url: jdbc:mysql://localhost:3306/ride_sharing
     username: root
-    password: ylocvFndsrUPJrQKiCEGBbJythxkTnOG
+    password: root
     validationQuery: SELECT 1
     #Remove abandoned connection,So, new connection will be created and made available to threads which are waiting for DB connection
     removeAbandoned: true

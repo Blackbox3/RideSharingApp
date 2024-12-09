@@ -6,12 +6,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
-/**
- * @author Bikash Shah
- */
+
 @Entity
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "application_user")
 @Table(name = "REQUESTS")
 @Data
 public class Requests {

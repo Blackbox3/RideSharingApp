@@ -44,7 +44,7 @@ public class ApplicationUser implements Serializable {
     @Column(name = "ACTIVE", nullable = false)
     private char active;
 
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Column(name = "CREATED_DATE", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -60,11 +60,15 @@ public class ApplicationUser implements Serializable {
     @Column(name="MOBILE_NUMBER")
     private String mobileNumber;
     @Column(name="LICENSE_NUMBER")
+    
     private String licenseNumber;
+
     @Column(name = "BIKE_NAME")
     private String bikeName;
     @Column(name = "PLATE_NUMBER")
     private String plateNumber;
+
+
 
 
     public ApplicationUser() {

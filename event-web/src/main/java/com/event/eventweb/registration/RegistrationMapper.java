@@ -33,13 +33,8 @@ public class RegistrationMapper {
         applicationUser.setBikeName(registrationRequest.getBikeName());
         applicationUser.setPlateNumber(registrationRequest.getPlateNumber());
         applicationUser.setUserType(registrationRequest.getUserType());
+        applicationUser.setName(registrationRequest.getName());
 
-//        @Column(name="LICENSE_NUMBER")
-//        private String licenseNumber;
-//        @Column(name = "BIKE_NAME")
-//        private String bikeName;
-//        @Column(name = "PLATE_NUMBER")
-//        private String plateNumber;
 
         return applicationUser;
     }

@@ -38,8 +38,7 @@
             <scope>test</scope>
         </dependency>
 
-
-        <!-- for  spring security -->
+        <!-- for spring security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -50,7 +49,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!--for jdbc connectivity-->
+        <!-- for JDBC connectivity -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -68,11 +67,6 @@
             <version>42.2.16</version>
         </dependency>
 
-        <!--Thyemeleaf-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -101,7 +95,16 @@
             <version>2.0.0.Final</version>
         </dependency>
 
+
     </dependencies>
+
+    <repositories>
+        <!-- JitPack Repository -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <build>
         <finalName>ROOT</finalName>
@@ -112,13 +115,10 @@
                 <version>3.1.1</version>
                 <configuration>
                     <excludes>
-<!--                        <exclude>*.properties</exclude>-->
-<!--                        <exclude>*.yml</exclude>-->
-                        <exclude>*.ftl,</exclude>
+                        <exclude>*.ftl</exclude>
                     </excludes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
