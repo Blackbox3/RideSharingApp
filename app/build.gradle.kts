@@ -25,6 +25,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -37,21 +38,23 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.transportation.consumer)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation ("com.googlecode.libphonenumber:libphonenumber:8.12.52")
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.52")
     // Google Sign-In dependency
     implementation("com.google.android.gms:play-services-auth:20.0.0")
-    implementation ("com.hbb20:ccp:2.7.0")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0'")
+    implementation("com.hbb20:ccp:2.7.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.android.libraries.places:places:2.6.0")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("org.osmdroid:osmdroid-android:6.1.10")
-    implementation ("com.google.android.libraries.places:places:2.6.0")
+    implementation ("com.google.maps.android:android-maps-utils:2.2.3")
 
-
-
-
+    implementation ("org.osmdroid:osmdroid-android:6.1.12")
 
 }

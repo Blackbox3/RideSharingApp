@@ -4,4 +4,9 @@
         <item>Rider</item>
         <item>Driver</item>
     </string-array>
+    <string-array name="mode_array">
+        <item>Walking</item>
+        <item>Car</item>
+        <item>Bike</item>
+    </string-array>
 </resources>

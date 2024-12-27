@@ -28,12 +28,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Spinner for selecting transport mode -->
+        <Spinner
+            android:id="@+id/modeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:entries="@array/mode_array" />
+
+        <!-- AutoCompleteTextView for Pickup Location -->
         <AutoCompleteTextView
             android:id="@+id/pickupLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Pickup Location" />
 
+        <!-- AutoCompleteTextView for Drop-off Location -->
         <AutoCompleteTextView
             android:id="@+id/dropOffLocation"
             android:layout_width="match_parent"
@@ -41,12 +51,34 @@
             android:hint="Enter Drop-off Location"
             android:layout_marginTop="8dp" />
 
+        <!-- Button to Find Driver -->
         <Button
             android:id="@+id/requestRideButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Find Driver"
             android:layout_marginTop="16dp" />
+
+        <!-- TextView for displaying the fare -->
+        <TextView
+            android:id="@+id/fareTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Fare: NPR 0.0"
+            android:textSize="18sp"
+            android:textColor="#CCCCCC"
+            android:gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/distanceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distance: 0 km"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

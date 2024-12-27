@@ -7,7 +7,7 @@ public class ApiClient {
     private static final String BASE_URL = "http://10.0.2.2:8080/";  // Replace <your_ip_address> with actual IP or 10.0.2.2 for Android Emulator
     private static Retrofit retrofit = null;
 
-    public static Retrofit getClient() {
+    public static Retrofit getClient() { 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
