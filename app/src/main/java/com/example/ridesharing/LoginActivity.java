@@ -17,6 +17,7 @@ import com.example.ridesharing.api.ApiClient;
 import com.example.ridesharing.api.LoginApi;
 import com.example.ridesharing.dto.BaseResponse;
 import com.example.ridesharing.dto.LoginResponse;
+import com.example.ridesharing.dto.RideRequestDTO;
 
 import org.json.JSONObject;
 
@@ -27,10 +28,12 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 101;
     private LoginApi loginApi;
+    private LoginApi rideApi;
+
     private EditText editTextEmail, editTextPassword;
     private CheckBox checkboxShowPassword;
     private Button buttonLoginSubmit;
-
+    private Button requestRideButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordEditText = findViewById(R.id.editTextPassword);
         CheckBox checkboxShowPassword = findViewById(R.id.checkboxShowPassword);
         Button loginButton = findViewById(R.id.buttonLoginSubmit);
-
         checkboxShowPassword.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Show the password
@@ -70,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private boolean validateInput(String email, String password) {
@@ -106,6 +110,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void handleLoginResponse(LoginResponse loginResponse) {
         if (loginResponse != null) {
             showToast("Login Successful");
@@ -119,9 +125,12 @@ public class LoginActivity extends AppCompatActivity {
     private void saveUserSession(LoginResponse loginResponse) {
         SharedPreferences sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userName", loginResponse.getName());
+        editor.putString("userName", loginResponse.getUsername());
         editor.putString("userToken", loginResponse.getToken());
         editor.putString("userType", loginResponse.getUserType());
+        editor.putString("userId",loginResponse.getUserId().toString());
+        editor.putString("name", loginResponse.getName());
+
         editor.apply();
 
         Log.d("LoginActivity", "User type saved: " + loginResponse.getUserType());

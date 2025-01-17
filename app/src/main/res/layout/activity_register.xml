@@ -11,7 +11,7 @@
         android:id="@+id/editTextFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
+        android:hint="Username"
         android:padding="16dp"
         android:background="@drawable/rounded_input_background"
         android:textColor="@android:color/black"

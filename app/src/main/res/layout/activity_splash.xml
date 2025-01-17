@@ -18,7 +18,7 @@
         android:id="@+id/sloganTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Slogan Here"
+        android:text="Ride the Future"
         android:textSize="24sp"
         android:textColor="@android:color/black"
         android:textStyle="bold"

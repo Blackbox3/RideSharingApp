@@ -81,7 +81,14 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
         Toast.makeText(RegisterActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                registerUser(nameEditText,emailEditText,phoneEditText,passwordEditText,roleSpinner,licensePlateEditText,bikeNumberEditText);
+            }
+        });
     }
     private void registerUser(EditText nameEditText, EditText emailEditText, EditText phoneEditText,
                               EditText passwordEditText, Spinner roleSpinner,

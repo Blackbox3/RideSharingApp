@@ -78,6 +78,8 @@
         <activity android:name=".DriverActivity" />
         <activity android:name=".RiderActivity" />
         <activity android:name=".MapActivity"></activity>
+        <activity android:name=".RideDetailsActivity"></activity>
+
 
     </application>
     </manifest>

@@ -1,6 +1,7 @@
 package com.example.ridesharing;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.ridesharing.api.ApiClient;
+import com.example.ridesharing.api.LoginApi;
+import com.example.ridesharing.dto.BaseResponse;
+import com.example.ridesharing.dto.LoginResponse;
+import com.example.ridesharing.dto.RideRequestDTO;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,6 +38,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MapActivity extends AppCompatActivity {
 
 
@@ -41,7 +52,7 @@ public class MapActivity extends AppCompatActivity {
     private Spinner modeSpinner;  // Spinner for selecting transport mode
 
     private TextView distanceTextView;  // Add reference to the distance TextView
-
+    private LoginApi loginApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +92,10 @@ public class MapActivity extends AppCompatActivity {
                 // Get selected transport mode from spinner
                 String selectedMode = modeSpinner.getSelectedItem().toString();
                 drawRoute(pickupMarker.getPosition(), dropOffMarker.getPosition(), selectedMode);
+
+                //todo: hit apit to backend
+
+
             }
         });
     }
@@ -322,6 +337,56 @@ public class MapActivity extends AppCompatActivity {
                 }
             }
         }.execute(urlString);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE);
+
+        String userName = sharedPreferences.getString("userName", "defaultUsername");
+        String userToken = sharedPreferences.getString("userToken", "defaultToken");
+        String userType = sharedPreferences.getString("userType", "defaultUserType");
+        String riderName =  sharedPreferences.getString("name","rider");
+        String userId = sharedPreferences.getString("name","rider");
+//        String[] pickupPoints = pickupPoint.split(",");
+//        String[] dropOffPoint = dropO.s
+
+        /*String userId = sharedPreferences.getString("userId", "defaultUserId");
+        String name = sharedPreferences.getString("name", "defaultName");
+*/
+        RideRequestDTO rideRequestDTO = new RideRequestDTO();
+        // Setting default values for the fields
+        rideRequestDTO.setRiderId(1l); // Default rider ID as 0
+        rideRequestDTO.setRiderName(riderName); // Default name
+        rideRequestDTO.setAmount(calculateFare(pickupPoint, dropOffPoint)); // Default amount
+        rideRequestDTO.setStartLocationName(""); // Default start location
+        rideRequestDTO.setEndLocationName("Not Available"); // Default end location
+        rideRequestDTO.setStartLocationLatitude(String.valueOf(pickupPoint.getLatitude())); // Default latitude
+        rideRequestDTO.setStartLocationLongitude(String.valueOf(pickupPoint.getLongitude())); // Default longitude
+        rideRequestDTO.setEndLocationLatitude(String.valueOf(dropOffPoint.getLatitude())); // Default latitude
+        rideRequestDTO.setEndLocationLongitude(String.valueOf(dropOffPoint.getLongitude())); // Default longitude
+        rideRequestDTO.setDistance(String.valueOf(distanceInKm));
+
+        loginApi = ApiClient.getClient().create(LoginApi.class);
+
+
+        Call<BaseResponse<RideRequestDTO>> call = loginApi.create(rideRequestDTO);
+
+        call.enqueue(new Callback<BaseResponse<RideRequestDTO>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<RideRequestDTO>> call, Response<BaseResponse<RideRequestDTO>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    System.out.println("saved successfully");
+                    //handleLoginResponse(response.body().getObj());
+                } else {
+                    //showToast("Login failed: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<RideRequestDTO>> call, Throwable t) {
+
+            }
+
+        });
     }
 
     private double calculateFare(GeoPoint pickupPoint, GeoPoint dropOffPoint) {

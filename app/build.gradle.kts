@@ -54,6 +54,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.maps.android:android-maps-utils:2.2.3")
+    implementation ("org.web3j:core:4.8.7")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("org.webrtc:google-webrtc:1.0.32006")
+    implementation ("com.github.p2p-org:solanaj:1.10")
 
     implementation ("org.osmdroid:osmdroid-android:6.1.12")
 
